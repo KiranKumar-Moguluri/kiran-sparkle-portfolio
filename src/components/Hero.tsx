@@ -147,35 +147,38 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Professional Image */}
+          {/* Professional Avatar */}
           <div className="relative animate-fade-in-up" style={{ animationDelay: '400ms' }}>
-            <div className="relative">
-              {/* Decorative background circle */}
-              <div className="absolute inset-0 bg-gradient-primary rounded-full opacity-20 blur-3xl transform scale-110 animate-pulse"></div>
+            <div className="relative max-w-md mx-auto">
+              {/* Animated background rings */}
+              <div className="absolute inset-0 rounded-full bg-gradient-primary opacity-20 animate-pulse scale-110"></div>
+              <div className="absolute inset-0 rounded-full border-2 border-primary/30 animate-spin-slow scale-125"></div>
+              <div className="absolute inset-0 rounded-full border border-secondary/20 animate-pulse scale-150"></div>
               
-              {/* Main image container */}
-              <div className="relative z-10 max-w-lg mx-auto">
-                <img 
-                  src="/lovable-uploads/5e95652f-d86b-4c74-99e8-d30b66675671.png"
-                  alt="Kiran Kumar Moguluri - Professional Portrait"
-                  className="w-full h-auto max-h-[600px] object-contain drop-shadow-2xl animate-float rounded-lg"
-                  style={{ 
-                    filter: 'drop-shadow(0 25px 50px rgba(59, 130, 246, 0.3))',
-                    background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(147, 51, 234, 0.1))',
-                    backdropFilter: 'blur(10px)'
-                  }}
-                />
+              {/* Professional portrait with modern styling */}
+              <div className="relative z-10 w-80 h-80 mx-auto rounded-full overflow-hidden glass-card p-2">
+                <div className="w-full h-full rounded-full overflow-hidden relative group">
+                  <img 
+                    src="/lovable-uploads/5e95652f-d86b-4c74-99e8-d30b66675671.png"
+                    alt="Kiran Kumar Moguluri - Senior Software Engineer"
+                    className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-primary opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
+                </div>
               </div>
 
-              {/* Floating tech icons */}
-              <div className="absolute top-10 left-10 w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center animate-float" style={{ animationDelay: '1s' }}>
-                <span className="text-primary font-bold">.NET</span>
+              {/* Floating skill badges with modern design */}
+              <div className="absolute -top-4 -right-4 glass-card px-3 py-2 rounded-full animate-float glow-primary" style={{ animationDelay: '1s' }}>
+                <span className="text-primary font-semibold text-sm">.NET</span>
               </div>
-              <div className="absolute top-20 right-10 w-12 h-12 bg-secondary/20 rounded-lg flex items-center justify-center animate-float" style={{ animationDelay: '2s' }}>
-                <span className="text-secondary font-bold">AWS</span>
+              <div className="absolute top-1/4 -left-6 glass-card px-3 py-2 rounded-full animate-float glow-secondary" style={{ animationDelay: '2s' }}>
+                <span className="text-secondary font-semibold text-sm">AWS</span>
               </div>
-              <div className="absolute bottom-20 left-0 w-12 h-12 bg-accent/20 rounded-lg flex items-center justify-center animate-float" style={{ animationDelay: '3s' }}>
-                <span className="text-accent font-bold">React</span>
+              <div className="absolute -bottom-4 left-1/4 glass-card px-3 py-2 rounded-full animate-float glow-accent" style={{ animationDelay: '3s' }}>
+                <span className="text-accent font-semibold text-sm">React</span>
+              </div>
+              <div className="absolute bottom-1/4 -right-8 glass-card px-3 py-2 rounded-full animate-float glow-violet" style={{ animationDelay: '4s' }}>
+                <span className="text-violet-400 font-semibold text-sm">Azure</span>
               </div>
             </div>
           </div>

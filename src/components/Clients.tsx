@@ -8,14 +8,14 @@ const Clients = () => {
       description: 'Enterprise Banking Solutions'
     },
     {
-      name: 'MediBuddy',
-      logo: '/assets/clients/medibuddy.svg',
+      name: 'IHX Private Limited',
+      logo: '/assets/clients/ihx.svg',
       description: 'Healthcare Technology Platform'
     },
     {
-      name: 'Flowserve Corporation',
-      logo: '/assets/clients/flowserve.svg',
-      description: 'Industrial Automation Solutions'
+      name: 'NTT DATA',
+      logo: '/assets/clients/nttdata.svg',
+      description: 'Digital Transformation Solutions'
     }
   ];
 

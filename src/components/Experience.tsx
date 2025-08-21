@@ -12,7 +12,7 @@ const Experience = () => {
       color: 'primary'
     },
     {
-      company: 'MediBuddy',
+      company: 'IHX Private Limited',
       role: 'Software Engineer',
       duration: 'Dec 2021 – Jan 2023',
       location: 'Remote',
@@ -20,7 +20,7 @@ const Experience = () => {
       color: 'secondary'
     },
     {
-      company: 'Flowserve Corporation',
+      company: 'NTT DATA',
       role: 'Software Engineer',
       duration: 'Feb 2020 – Dec 2021',
       location: 'Remote',
