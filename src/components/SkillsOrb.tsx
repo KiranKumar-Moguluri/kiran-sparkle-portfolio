@@ -86,17 +86,25 @@ const SkillOrb = ({ skills }: SkillOrbProps) => {
 
 const Skills3D = ({ skills }: SkillOrbProps) => {
   return (
-    <div className="h-96 w-full">
-      <Canvas camera={{ position: [0, 0, 8], fov: 45 }}>
-        <ambientLight intensity={0.4} />
-        <pointLight position={[10, 10, 10]} intensity={1} />
-        <pointLight position={[-10, -10, -10]} intensity={0.5} />
+    <div className="h-96 w-full relative">
+      <Canvas 
+        camera={{ position: [0, 0, 8], fov: 45 }}
+        style={{ width: '100%', height: '100%' }}
+        gl={{ antialias: true, alpha: true }}
+      >
+        <ambientLight intensity={0.6} />
+        <pointLight position={[10, 10, 10]} intensity={1.2} />
+        <pointLight position={[-10, -10, -10]} intensity={0.8} />
+        <spotLight position={[0, 10, 0]} intensity={0.5} />
         <SkillOrb skills={skills} />
         <OrbitControls 
-          enableZoom={false} 
-          enablePan={false}
+          enableZoom={true}
+          enablePan={true}
           autoRotate
-          autoRotateSpeed={1}
+          autoRotateSpeed={0.5}
+          minDistance={5}
+          maxDistance={12}
+          makeDefault
         />
       </Canvas>
     </div>
