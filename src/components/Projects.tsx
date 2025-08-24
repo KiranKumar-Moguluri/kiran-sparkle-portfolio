@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { ExternalLink, Github, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+import { motion } from 'framer-motion';
+import myjobmediaImage from '@/assets/myjobmedia-mockup.jpg';
+import urbandashxImage from '@/assets/urbandashx-mockup.jpg';
 
 const Projects = () => {
   const [selectedProject, setSelectedProject] = useState(null);
@@ -13,7 +16,7 @@ const Projects = () => {
       description: 'Cross-platform community job/task posting app with real-time features',
       longDescription: 'A comprehensive job and task posting application built with React Native, featuring Firebase backend integration, Google Maps API for location services, and Stripe payment processing. The app enables users to post jobs, find tasks, and connect with service providers in their local community.',
       tech: ['React Native', 'Firebase', 'Google Maps API', 'Stripe', 'Redux'],
-      image: '/assets/projects/myjobmedia.jpg',
+      image: myjobmediaImage,
       liveUrl: 'https://myjobmedia.netlify.app',
       codeUrl: 'https://github.com/KiranKumar-Moguluri/idanda-app',
       color: 'primary'
@@ -24,7 +27,7 @@ const Projects = () => {
       description: 'AI-assisted rideshare and food delivery platform',
       longDescription: 'A modern rideshare and food delivery application featuring AI-powered route optimization, real-time tracking, and seamless payment integration. Built with React/Next.js frontend and AWS microservices architecture for scalability and performance.',
       tech: ['React', 'Next.js', 'AWS Lambda', 'DynamoDB', 'API Gateway', 'AI/ML'],
-      image: '/assets/projects/urbandashx.jpg',
+      image: urbandashxImage,
       liveUrl: null,
       codeUrl: 'https://github.com/KiranKumar-Moguluri/urbanfoodride',
       color: 'secondary'
@@ -45,18 +48,26 @@ const Projects = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto mb-12">
           {projects.map((project, index) => (
-            <div
+            <motion.div
               key={project.id}
-              className="group perspective-1000 animate-scale-in"
-              style={{ animationDelay: `${index * 300}ms` }}
+              className="group perspective-1000"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.2 }}
+              whileHover={{ y: -10 }}
             >
-              <div className="relative transform-style-3d transition-transform duration-700 group-hover:rotate-y-6">
-                <div className="glass-card p-8 h-full group-hover:glow-primary transition-all duration-300">
-                  {/* Project image placeholder */}
-                  <div className="w-full h-48 bg-gradient-primary rounded-lg mb-6 flex items-center justify-center">
-                    <span className="text-6xl font-bold text-primary-foreground opacity-50">
-                      {project.title[0]}
-                    </span>
+              <div className="relative">
+                <motion.div 
+                  className="glass-card p-8 h-full group-hover:glow-primary transition-all duration-300"
+                  whileHover={{ scale: 1.02 }}
+                >
+                  {/* Real Project Image */}
+                  <div className="w-full h-48 rounded-lg mb-6 overflow-hidden">
+                    <img 
+                      src={project.image} 
+                      alt={`${project.title} project mockup`}
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                    />
                   </div>
                   
                   <h3 className="text-2xl font-bold mb-3 text-foreground">{project.title}</h3>
@@ -109,9 +120,9 @@ const Projects = () => {
                       Code
                     </Button>
                   </div>
-                </div>
+                </motion.div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 
@@ -141,11 +152,13 @@ const Projects = () => {
               </DialogHeader>
               
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                {/* Project image */}
-                <div className="w-full h-64 bg-gradient-primary rounded-lg flex items-center justify-center">
-                  <span className="text-8xl font-bold text-primary-foreground opacity-50">
-                    {selectedProject.title[0]}
-                  </span>
+                {/* Real Project Image */}
+                <div className="w-full h-64 rounded-lg overflow-hidden">
+                  <img 
+                    src={selectedProject.image} 
+                    alt={`${selectedProject.title} detailed view`}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 
                 {/* Project details */}

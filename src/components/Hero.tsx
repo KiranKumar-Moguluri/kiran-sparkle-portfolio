@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Download, ExternalLink, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { motion } from 'framer-motion';
+import ParticleBackground from './ParticleBackground';
+import FloatingElements from './FloatingElements';
 
 const Hero = () => {
   const [currentRole, setCurrentRole] = useState(0);
@@ -62,22 +65,38 @@ const Hero = () => {
 
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      {/* Animated background */}
+      <ParticleBackground />
+      <FloatingElements />
+      
+      {/* Enhanced animated background */}
       <div className="absolute inset-0 hero-bg">
-        <div className="absolute inset-0 opacity-20">
-          {[...Array(50)].map((_, i) => (
-            <div
+        <motion.div 
+          className="absolute inset-0 opacity-20"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0.2 }}
+          transition={{ duration: 2 }}
+        >
+          {[...Array(30)].map((_, i) => (
+            <motion.div
               key={i}
-              className="absolute w-1 h-1 bg-primary rounded-full animate-pulse-glow"
+              className="absolute w-1 h-1 bg-primary rounded-full"
               style={{
                 left: `${Math.random() * 100}%`,
                 top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 3}s`,
-                animationDuration: `${2 + Math.random() * 2}s`
+              }}
+              animate={{
+                opacity: [0, 1, 0],
+                scale: [0, 1, 0]
+              }}
+              transition={{
+                duration: 3,
+                delay: Math.random() * 2,
+                repeat: Infinity,
+                ease: "easeInOut"
               }}
             />
           ))}
-        </div>
+        </motion.div>
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
